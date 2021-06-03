@@ -5,6 +5,13 @@ export default class Item extends React.Component<{ value: number; color: string
 
   render() {
     this.renderCount = ++this.renderCount;
-    return <li style={{ backgroundColor: this.props.color }}>{this.props.value} ({this.renderCount} render/s)</li>
+    return (
+      <li
+      data-testid="item"
+      style={{ backgroundColor: this.props.color }}
+    >
+      {this.props.value} (<span data-testid="count">{this.renderCount}</span> render/s)
+    </li>
+    );
   }
 }

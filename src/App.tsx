@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={onClick as any}>add</button>
+      <button data-testid="btn" onClick={onClick as any}>add</button>
       {timestamp && <div>last item added was: {timestamp}</div>}
       <ol>
         {list.map((item, index) => <Item key={index} value={item} color={item % 2 ? 'green' : 'yellow'} />)}
