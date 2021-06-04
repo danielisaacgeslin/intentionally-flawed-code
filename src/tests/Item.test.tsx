@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Item from './Item';
+import Item from '../Item';
 
 describe('Item', () => {
   it('should render an item with a render count that only increments when something changes', () => {
