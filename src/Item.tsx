@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default class Item extends React.Component<{ value: number; color: string }> {
+/** 
+ * @todo internal render count is working ok, but the component is rendering more than it needs.
+ * @todo refactor this to be a functional compo instead
+ * */
+export default class Item extends React.Component<{ value: string }> {
   private renderCount = 0;
 
   render() {
@@ -8,9 +12,14 @@ export default class Item extends React.Component<{ value: number; color: string
     return (
       <li
       data-testid="item"
-      style={{ backgroundColor: this.props.color }}
+      style={{ backgroundColor: 'lightblue', marginTop: 10 }}
     >
-      {this.props.value} (<span data-testid="count">{this.renderCount}</span> render/s)
+      <p>ID: {this.props.value}</p>
+      <small>
+        <strong>
+          (<span data-testid="count">{this.renderCount}</span> renders)
+        </strong>
+      </small>
     </li>
     );
   }

@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { v4 } from 'uuid';
+
 import Item from './Item';
 
+/** @todo this component should add items to the list when the button is clicked, but it isn't working */
+
 const App = () => {
-  const [list, setList] = useState<any>([]);
-  const [timestamp, setTimestamp] = useState<any>();
+  const [list, setList] = useState<string[]>([]);
   console.log(list)
   
   const onClick = () => {
-    list.push(Date.now());
-    setList(list)
-    setTimestamp(Date.now())
+    const id = v4();
+    list.push(id);
+    setList(list);
   };
 
   return (
     <div>
-      <button data-testid="btn" onClick={onClick as any}>add</button>
-      {timestamp && <div>last item added was: {timestamp}</div>}
-      <ol>
-        {list.map((item, index) => <Item key={index} value={item} color={item % 2 ? 'green' : 'yellow'} />)}
-      </ol>
+      <button data-testid="btn" onClick={onClick} style={{ width: '100%', height: 30 }}>Add item</button>
+      <ul>
+        {list.map((id, index) => <Item key={index} value={id} />)}
+      </ul>
     </div>
   );
 }
