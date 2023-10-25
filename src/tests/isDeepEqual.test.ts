@@ -20,6 +20,7 @@ describe('isDeepEqual', () => {
     expect(isDeepEqual({ a: 1 }, { a: 1 })).toEqual(true);
     expect(isDeepEqual({ a: 1, b: 2 }, { b: 2, a: 1 })).toEqual(true);
     expect(isDeepEqual({ a: 1 }, { a: 2 })).toEqual(false);
+    expect(isDeepEqual({ a: 1 }, { a: 1, b: 2 })).toEqual(false);
   });
 
   it('should complex objects and arrays', () => {
